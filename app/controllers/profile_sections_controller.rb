@@ -2,7 +2,7 @@ class ProfileSectionsController < ApplicationController
 
   def create
     profile_section = ProfileSection.create!(profile_section_params)
-    redirect_to profile_section
+    redirect_to profile_section.profile
   end
 
   private

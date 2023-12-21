@@ -4,8 +4,17 @@ class SectionsController < ApplicationController
     @sections = Section.all
   end
 
+  def edit
+    @section = Section.find(params[:id])
+  end
+
   def create
-    section = Section.create!(section_params)
+    Section.create!(section_params)
+    redirect_to sections_path
+  end
+
+  def update
+    Section.find(params[:id]).update!(section_params)
     redirect_to sections_path
   end
 

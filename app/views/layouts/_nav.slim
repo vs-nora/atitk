@@ -1,4 +1,6 @@
 nav.p-breadcrumbs aria-label="Breadcrumbs"
   ol.p-breadcrumbs__items
+    li.p-breadcrumbs__item
+      a href="/" HOME
     - @breadcrumb_array.each do |bc|
       li.p-breadcrumbs__item= bc

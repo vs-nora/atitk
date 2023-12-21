@@ -21,3 +21,7 @@
 .ml {
   margin-left: 15px;
 }
+
+a:visited {
+  color: #06C
+}

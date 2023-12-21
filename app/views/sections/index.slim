@@ -1,4 +1,19 @@
-h3 Sections
+h1
+  | Sections
+  = link_to new_section_path
+    button.ml.is-dense.p-button--positive New
 
-- @sections.each do |section|
-  p= section.name
+table class="p-table p-table--mobile-card"
+  thead
+    tr
+      th Name
+      th Default
+  tbody
+    - @sections.each do |section|
+      tr
+        td= section.name
+        td= section.default
+        td
+          = link_to(edit_section_path(section))
+            button class="ml u-toggle is-dense" Edit
+
