@@ -15,4 +15,11 @@
 class ProfileSection < ApplicationRecord
   belongs_to :section
   belongs_to :profile
+
+  delegate :name, to: :section
+
+  validates :section_id, uniqueness: { scope: :profile_id }
+
+  scope :defaults, -> { joins(:section).where(sections: { default: true }) }
+  scope :not_defaults, -> { joins(:section).where(sections: { default: false }) }
 end

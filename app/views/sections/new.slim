@@ -1,0 +1,9 @@
+= form_for(Section.new) do |f|
+  div
+    = f.label :Default
+    = f.check_box :default
+  div
+    = f.label :name
+    = f.text_field :name
+
+  = f.submit "Save", class: "p-button--positive"

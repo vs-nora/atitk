@@ -1,0 +1,22 @@
+html
+  head
+    title All there is to know - ATITK
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = javascript_include_tag('application.js')
+    link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-4.5.1.min.css"
+    = stylesheet_link_tag "application"
+
+  body.l-application.l-site
+    = render "layouts/header"
+
+
+    .u-fixed-width
+      = render "layouts/nav"
+
+    .u-fixed-width
+      = yield
+
+    = render "layouts/footer"

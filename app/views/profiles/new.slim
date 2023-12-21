@@ -1,0 +1,7 @@
+= form_for(@profile) do |profile_form|
+  = profile_form.fields_for(:profile_sections, Section.where(default: true).map{|s| ProfileSection.new(section: s)}) do |section_fields|
+    = section_fields.label section_fields.object.section.name
+    = section_fields.hidden_field :section_id
+    = section_fields.text_area :value
+
+  = profile_form.submit "Save", class: "p-button--positive"

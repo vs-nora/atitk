@@ -1,0 +1,19 @@
+div.u-align--right
+  = link_to profiles_path
+    button class="is-dense p-button--positive" Index
+  = link_to profile_path(@profile)
+    button.ml class="is-dense p-button--positive" Show
+
+= form_for(@profile) do |profile_form|
+  = profile_form.fields_for(:profile_sections) do |section_fields|
+    = section_fields.label section_fields.object.section.name
+    = section_fields.text_area :value
+
+  = profile_form.submit "Save", class: "p-button--positive"
+
+
+= form_for(ProfileSection.new(profile: @profile)) do |profile_section_form|
+  = profile_section_form.select(:section_id, Section.all.where.not(id: @profile.profile_sections.pluck(:section_id)).pluck(:name, :id))
+  = profile_section_form.text_area :value
+  = profile_section_form.hidden_field :profile_id
+  = profile_section_form.submit "Add", class: "p-button--positive"

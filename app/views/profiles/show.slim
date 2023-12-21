@@ -1,0 +1,7 @@
+h3 = @profile.profile_sections.defaults.pluck(:value).join(' - ')
+
+- @profile.profile_sections.not_defaults.each do |section|
+  p = section.name
+
+= link_to edit_profile_path(@profile)
+  button class="is-dense p-button--positive" Edit

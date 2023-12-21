@@ -1,0 +1,26 @@
+h1
+  | Profiles
+  = link_to new_profile_path
+    button.ml.is-dense.p-button--positive New
+
+table class="p-table" aria-label="Example of a table with icons"
+  thead
+    tr
+      th ID
+      - @default_sections.each do |section|
+        th= section.name
+      th aria-hidden="true"
+      th aria-hidden="true"
+  tbody
+    - @profiles.each do |profile|
+      tr
+        th
+          | #
+          = profile.id
+        - profile.profile_sections.defaults.each do |profile_section|
+          td= profile_section.value
+        td
+          = link_to profile
+            button class="u-toggle is-dense" Show
+          = link_to edit_profile_path(profile)
+            button class="ml u-toggle is-dense" Edit

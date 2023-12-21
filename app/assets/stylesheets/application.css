@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.white {
+  color: white;
+}
+
+.ml {
+  margin-left: 15px;
+}
